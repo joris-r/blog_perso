@@ -23,6 +23,8 @@
   dossiers de contenu de test, sous `tests/fixtures/`.
 - Le dossier de contenu lu par la construction est `content/` par
   défaut ; la variable d'environnement `CONTENT_DIR` le remplace.
+- Le dossier de sortie est `_site/` par défaut ; la variable
+  d'environnement `OUTPUT_DIR` le remplace.
 
 ## Organisation du dépôt
 
