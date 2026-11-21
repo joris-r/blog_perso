@@ -8,3 +8,5 @@
 - Flux RSS.
 - Étiquettes sur les articles.
 - Formulaire de contact.
+- Accélérer les tests en construisant dans le processus de test.
+- Passer à Node 26 LTS.

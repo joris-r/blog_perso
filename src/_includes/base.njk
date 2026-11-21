@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="{{ langue or 'fr' }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if titre %}{{ titre }} · {% endif %}{{ site.titre }}</title>
+<meta name="author" content="{{ site.auteur }}">
+{% if résumé %}<meta name="description" content="{{ résumé }}">{% endif %}
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="bandeau"><a href="/">{{ site.titre }}</a></header>
+<main>
+{{ content | safe }}
+</main>
+<footer class="pied">{{ site.auteur }}</footer>
+</body>
+</html>

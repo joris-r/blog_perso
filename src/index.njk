@@ -1,0 +1,13 @@
+{% if collections.articles.length %}
+<ul class="articles">
+{% for a in collections.articles %}
+<li>
+<a href="{{ a.url }}" hreflang="{{ a.data.langue }}">{{ a.data.titre }}</a>
+<span class="meta"><time datetime="{{ a.data.nom | truncate(10, true, '') }}">{{ a.data.nom | dateTexte('fr') }}</time> · <abbr class="langue" lang="{{ a.data.langue }}">{{ a.data.langue | indicateur }}</abbr></span>
+{% if a.data['résumé'] %}<p>{{ a.data['résumé'] }}</p>{% endif %}
+</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>Aucun article pour l'instant.</p>
+{% endif %}

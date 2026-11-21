@@ -1,0 +1,63 @@
+:root {
+  --fond: #fdfdfc;
+  --texte: #1f2328;
+  --discret: #59636e;
+  --lien: #0b5cad;
+  --code-fond: #f3f4f6;
+  --tok-commentaire: #6a737d;
+  --tok-mot: #a1267a;
+  --tok-texte: #1a7f37;
+  --tok-nombre: #b35900;
+  --tok-fonction: #6639ba;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fond: #16181c;
+    --texte: #e6e8eb;
+    --discret: #9aa4af;
+    --lien: #6cb6ff;
+    --code-fond: #22262c;
+    --tok-commentaire: #8b949e;
+    --tok-mot: #ff7bc5;
+    --tok-texte: #7ee787;
+    --tok-nombre: #ffa657;
+    --tok-fonction: #d2a8ff;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0 auto;
+  max-width: 42rem;
+  padding: 1.5rem 1rem 3rem;
+  font: 1.0625rem/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--fond);
+  color: var(--texte);
+}
+a { color: var(--lien); }
+main { overflow-wrap: anywhere; }
+.bandeau { margin-bottom: 2.5rem; font-weight: 600; font-size: 1.15rem; }
+.bandeau a { color: inherit; text-decoration: none; }
+.pied { margin-top: 4rem; color: var(--discret); font-size: 0.9rem; }
+h1 { line-height: 1.25; margin-bottom: 0.25rem; }
+.date, .meta { color: var(--discret); font-size: 0.9rem; }
+.articles { list-style: none; padding: 0; }
+.articles li { margin-bottom: 1.75rem; }
+.articles li > a { font-size: 1.2rem; font-weight: 600; }
+.articles p { margin: 0.25rem 0 0; }
+.langue { text-decoration: none; font-size: 0.8rem; letter-spacing: 0.05em; }
+img { max-width: 100%; height: auto; }
+code { font: 0.9em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+:not(pre) > code { background: var(--code-fond); padding: 0.1em 0.3em; border-radius: 3px; }
+pre {
+  background: var(--code-fond);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  line-height: 1.45;
+}
+.token.comment, .token.prolog, .token.doctype { color: var(--tok-commentaire); font-style: italic; }
+.token.keyword, .token.tag, .token.boolean, .token.important { color: var(--tok-mot); }
+.token.string, .token.attr-value, .token.char, .token.regex { color: var(--tok-texte); }
+.token.number, .token.constant, .token.symbol { color: var(--tok-nombre); }
+.token.function, .token.class-name, .token.attr-name { color: var(--tok-fonction); }

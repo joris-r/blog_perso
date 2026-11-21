@@ -1,0 +1,10 @@
+---
+layout: base.njk
+---
+<article>
+<h1>{{ titre }}</h1>
+<p class="date"><time datetime="{{ nom | truncate(10, true, '') }}">{{ nom | dateTexte(langue) }}</time></p>
+<div class="corps">
+{{ content | safe }}
+</div>
+</article>
