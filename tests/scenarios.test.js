@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { build, copyFixture, page, text } from "./helpers.js";
+import { buildCommand, copyFixture, page, text } from "./helpers.js";
 
 function follow(from, href) {
   const url = new URL(href, `http://site${from}`).pathname;
@@ -8,8 +8,9 @@ function follow(from, href) {
 }
 
 // /scenarios/deux-articles
+// /operations/construire-le-site/construit : statut de sortie nul.
 test("scénario : deux articles", () => {
-  const r = build(copyFixture("deux-articles", "scenario-deux-articles"));
+  const r = buildCommand(copyFixture("deux-articles", "scenario-deux-articles"));
   assert.equal(r.code, 0, r.output);
 
   const home = page(r.outDir, "/");
@@ -38,9 +39,10 @@ test("scénario : deux articles", () => {
 });
 
 // /scenarios/lien-casse
+// /operations/generalites/refus : statut de sortie non nul.
 test("scénario : lien cassé", () => {
   const second = "---\ntitre: Second\nlangue: en\nrésumé: Un résumé.\n---\nSee [the first one](/articles/2026-01-11-premier/).\n";
-  const r = build(copyFixture("deux-articles", "scenario-lien-casse", { "articles/2026-02-20-second.md": second }));
+  const r = buildCommand(copyFixture("deux-articles", "scenario-lien-casse", { "articles/2026-02-20-second.md": second }));
   assert.notEqual(r.code, 0, r.output);
   assert.ok(r.output.includes("articles/2026-02-20-second.md"), r.output);
   assert.ok(r.output.includes("/articles/2026-01-11-premier/"), r.output);

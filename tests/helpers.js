@@ -52,7 +52,7 @@ export function copyFixture(fixture, name, changes = {}) {
 }
 
 /** Runs `npm run build` on a content folder; the site goes next to it, in `site/`. */
-export function build(contentDir) {
+export function buildCommand(contentDir) {
   const outDir = join(dirname(contentDir), "site");
   rmSync(outDir, { recursive: true, force: true });
   const r = spawnSync("npm", ["run", "--silent", "build"], {
@@ -63,7 +63,16 @@ export function build(contentDir) {
   return { code: r.status, output: `${r.stdout}\n${r.stderr}`, outDir };
 }
 
-/** Builds a content folder made from `files`, under a tmp name. */
+/** Calls the build in this process on a content folder; the site goes next to it, in `site/`. */
+export async function build(contentDir) {
+  const outDir = join(dirname(contentDir), "site");
+  rmSync(outDir, { recursive: true, force: true });
+  const { construire } = await import("../scripts/construire.js");
+  const { erreurs } = await construire({ contenu: contentDir, sortie: outDir });
+  return { refused: erreurs.length > 0, output: erreurs.join("\n"), outDir };
+}
+
+/** Builds in this process a content folder made from `files`, under a tmp name. */
 export function buildFiles(name, files) {
   return build(makeContent(name, files));
 }

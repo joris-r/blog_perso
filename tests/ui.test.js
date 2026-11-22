@@ -7,8 +7,8 @@ const BRAVO = "2026-02-14-bravo";
 const CHARLIE = "2026-01-21-charlie";
 let out;
 
-before(() => {
-  const r = buildFiles("ui", {
+before(async () => {
+  const r = await buildFiles("ui", {
     "site.json": SITE,
     "medias/a.png": PNG,
     [`articles/${ALPHA}.md`]: article(
@@ -18,7 +18,7 @@ before(() => {
     [`articles/${BRAVO}.md`]: article({ titre: "Bravo", langue: "fr" }),
     [`articles/${CHARLIE}.md`]: article({ titre: "Charlie", langue: "en", "résumé": "" }, "Body text.\n"),
   });
-  assert.equal(r.code, 0, r.output);
+  assert.ok(!r.refused, r.output);
   out = r.outDir;
 });
 
@@ -102,9 +102,9 @@ test("l'accueil liste les articles du plus récent au plus ancien, avec date, la
 });
 
 // /ui/page-daccueil/aucun
-test("sans article, l'accueil le dit", () => {
-  const r = buildFiles("ui-aucun", { "site.json": SITE });
-  assert.equal(r.code, 0, r.output);
+test("sans article, l'accueil le dit", async () => {
+  const r = await buildFiles("ui-aucun", { "site.json": SITE });
+  assert.ok(!r.refused, r.output);
   assert.ok(text(page(r.outDir, "/")).includes("Aucun article pour l'instant."));
 });
 
