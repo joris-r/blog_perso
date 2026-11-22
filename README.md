@@ -9,7 +9,7 @@ publié sur https://jirm.eu/ avec Eleventy v3.
 Commandes (Node.js 24) :
 
 ```sh
-npm install
+npm ci
 npm run build   # construit le site dans _site/, vérifie la forme du contenu
 npm run serve   # serveur local avec rechargement
 npm test        # tests du logiciel

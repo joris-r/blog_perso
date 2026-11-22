@@ -13,3 +13,7 @@
 - Coloration du code plus complète (sélecteurs et propriétés CSS, clés YAML, variables shell…), dans les deux thèmes.
 - Spécifier que le Markdown des articles n'est pas interprété par Nunjucks.
 - Écrire le modèle de menaces.
+- Page de mentions légales : hébergeur et vie privée des lecteurs.
+- Refuser à la construction les ressources chargées depuis un autre site.
+- Configurer npm : `ignore-scripts` et `min-release-age=7`.
+- Refuser aussi `srcdoc`, les adresses `data:` et `object`/`embed` dans les articles.

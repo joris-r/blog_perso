@@ -37,6 +37,17 @@
 - `.github/workflows/` : la publication.
 - `_site/` : le site produit, non versionné.
 
+## Dépendances
+
+- Les versions des dépendances npm sont fixées par
+  `package-lock.json`, versionné ; la publication les installe par
+  `npm ci`.
+- Sur la machine de l'auteur aussi, les dépendances s'installent par
+  `npm ci`, sauf dans un incrément qui les met à jour.
+- Une dépendance n'est mise à jour que dans un incrément dédié.
+- Le flux de publication n'utilise que des actions de l'organisation
+  `actions` de GitHub.
+
 ## Commandes
 
 - `npm run build` : /operations/construire-le-site.

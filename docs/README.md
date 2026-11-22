@@ -2,7 +2,7 @@
 
 - [overview.md](overview.md) : à quoi sert le site, ses non-objectifs.
 - [technical.md](technical.md) : pile, organisation du dépôt, frontière
-  entre contenu et logiciel, politique de tests.
+  entre contenu et logiciel, dépendances, politique de tests.
 - [design.md](design.md) : règles d'apparence, vérifiées à l'œil.
 - [model.md](model.md) : le contenu lu par le logiciel, fixe le
   vocabulaire.

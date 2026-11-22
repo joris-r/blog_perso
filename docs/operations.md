@@ -55,10 +55,12 @@ vide, c'est la page elle-même. La page `/<chemin>/` est atteinte par
 
 ## Publier
 
-Trigger: un push sur la branche `main` du dépôt GitHub.
+Trigger: un push sur la branche `main` du dépôt GitHub, ou un
+lancement manuel du flux de publication par un membre du dépôt.
 
 Cases:
-- [publie] /operations/construire-le-site réussit : GitHub Pages sert
-  `_site/` à https://jirm.eu/. (not testable)
-- [echec] La construction est refusée : le site servi est inchangé.
+- [publie] Les tests et /operations/construire-le-site réussissent :
+  GitHub Pages sert `_site/` à https://jirm.eu/. (not testable)
+- [echec] Un test échoue ou la construction est refusée : le site
+  servi est inchangé.
   (not testable)
