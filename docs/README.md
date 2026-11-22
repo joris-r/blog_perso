@@ -10,3 +10,4 @@
   du site.
 - [ui.md](ui.md) : les pages que le lecteur rencontre.
 - [scenarios.md](scenarios.md) : usage typique.
+- [security.md](security.md) : le modèle de menaces.

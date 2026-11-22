@@ -12,3 +12,4 @@
 - Passer à Node 26 LTS.
 - Coloration du code plus complète (sélecteurs et propriétés CSS, clés YAML, variables shell…), dans les deux thèmes.
 - Spécifier que le Markdown des articles n'est pas interprété par Nunjucks.
+- Écrire le modèle de menaces.
