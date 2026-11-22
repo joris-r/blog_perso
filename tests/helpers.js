@@ -1,6 +1,6 @@
 import { spawnSync } from "node:child_process";
 import { mkdirSync, rmSync, writeFileSync, readFileSync, existsSync, readdirSync, statSync, cpSync } from "node:fs";
-import { dirname, join, relative } from "node:path";
+import { dirname, join, relative, resolve as resolvePath } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseHTML } from "linkedom";
 
@@ -63,9 +63,16 @@ export function buildCommand(contentDir) {
   return { code: r.status, output: `${r.stdout}\n${r.stderr}`, outDir };
 }
 
+// eleventy-img keeps module-level caches (of images and of folders it created)
+// across builds: two in-process builds into the same output folder diverge from
+// `npm run build`. Each output folder is therefore built once per process.
+const built = new Set();
+
 /** Calls the build in this process on a content folder; the site goes next to it, in `site/`. */
 export async function build(contentDir) {
-  const outDir = join(dirname(contentDir), "site");
+  const outDir = resolvePath(dirname(contentDir), "site");
+  if (built.has(outDir)) throw new Error(`${outDir} already built in this test process`);
+  built.add(outDir);
   rmSync(outDir, { recursive: true, force: true });
   const { construire } = await import("../scripts/construire.js");
   const { erreurs } = await construire({ contenu: contentDir, sortie: outDir });
