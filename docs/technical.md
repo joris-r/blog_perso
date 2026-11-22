@@ -32,7 +32,7 @@
 - `src/` : gabarits, feuille de style, et fichiers copiés tels quels
   dans le site, dont `CNAME`.
 - `eleventy.config.js` : la configuration d'Eleventy.
-- `scripts/` : les vérifications de forme.
+- `scripts/` : la construction et ses vérifications de forme.
 - `tests/` : les tests et leurs dossiers de contenu.
 - `.github/workflows/` : la publication.
 - `_site/` : le site produit, non versionné.
