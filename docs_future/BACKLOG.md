@@ -13,6 +13,5 @@
 - Spécifier que le Markdown des articles n'est pas interprété par Nunjucks.
 - Page de mentions légales : hébergeur et vie privée des lecteurs.
 - Refuser à la construction les ressources chargées depuis un autre site.
-- Configurer npm : `ignore-scripts` et `min-release-age=7`.
 - Refuser aussi `srcdoc`, les adresses `data:` et `object`/`embed` dans les articles.
 - Politique CSP en `<meta>` dans les gabarits : rien d'autre que le site lui-même.
