@@ -45,6 +45,10 @@
 - Sur la machine de l'auteur aussi, les dépendances s'installent par
   `npm ci`, sauf dans un incrément qui les met à jour.
 - Une dépendance n'est mise à jour que dans un incrément dédié.
+- `.npmrc`, versionné, règle npm pour le projet : aucun script de
+  paquet ne s'exécute à l'installation (`ignore-scripts=true`), et
+  aucune version publiée depuis moins de 7 jours n'est choisie
+  (`min-release-age=7`).
 - Le flux de publication n'utilise que des actions de l'organisation
   `actions` de GitHub.
 

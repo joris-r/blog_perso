@@ -49,7 +49,7 @@ GitHub, qui héberge le dépôt et le site, est de confiance.
   après le choix des versions, s'installe sur la machine de l'auteur
   ou dans GitHub Actions : /technical/dependances.
 - [installation] Une version choisie d'un paquet npm exécute du code
-  malveillant à son installation : accepted.
+  malveillant à son installation : /technical/dependances.
 - [construction] Une version choisie d'un paquet npm exécute du code
   malveillant pendant la construction : accepted.
 - [action] Une action compromise publie autre chose que le site
