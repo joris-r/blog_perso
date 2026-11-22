@@ -63,8 +63,11 @@
 
 ## Politique de tests
 
-- Un seul niveau, la construction : un test lance la construction sur
-  un dossier de contenu de test, puis observe son statut de sortie,
-  ses messages et les fichiers produits dans le dossier de sortie,
-  HTML compris.
+- La construction dans le processus : un test appelle la construction
+  dans son propre processus, sur un dossier de contenu de test, puis
+  observe son refus ou son succès, ses messages et les fichiers
+  produits dans le dossier de sortie, HTML compris.
+- La commande : un test lance `npm run build` sur un dossier de
+  contenu de test, puis observe en plus son statut de sortie. Les
+  scénarios, et seulement eux, sont à ce niveau.
 - Test runner : `node:test`.
