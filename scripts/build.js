@@ -1,41 +1,24 @@
-// Construction du site : vérification du contenu, Eleventy, puis liens internes.
+// Commande de construction : `npm run build`, ou `--serve` pour servir en local.
 import { resolve } from "node:path";
+import { construire, eleventy } from "./construire.js";
 import { verifierContenu } from "./contenu.js";
-import { verifierLiens } from "./liens.js";
 
 const contenu = resolve(process.env.CONTENT_DIR ?? "content");
 const sortie = resolve(process.env.OUTPUT_DIR ?? "_site");
-const serve = process.argv.includes("--serve");
 
 function refuser(erreurs) {
   for (const e of erreurs) console.error(e);
   process.exit(1);
 }
 
-const { erreurs, site } = await verifierContenu(contenu);
-if (erreurs.length) refuser(erreurs);
-
-// Chargée après la vérification, pour qu'un refus sorte vite.
-const { default: Eleventy } = await import("@11ty/eleventy");
-const eleventy = new Eleventy(contenu, sortie, {
-  quietMode: true,
-  configPath: resolve(import.meta.dirname, "..", "eleventy.config.js"),
-  runMode: serve ? "serve" : "build",
-  config(cfg) {
-    cfg.addGlobalData("site", site);
-  },
-});
-
-if (serve) {
-  await eleventy.init();
-  await eleventy.watch();
-  await eleventy.serve();
+if (process.argv.includes("--serve")) {
+  const { erreurs, site } = await verifierContenu(contenu);
+  if (erreurs.length) refuser(erreurs);
+  const e = await eleventy({ contenu, sortie, site, serve: true });
+  await e.init();
+  await e.watch();
+  await e.serve();
 } else {
-  try {
-    await eleventy.write();
-  } catch (e) {
-    refuser([String(e?.message ?? e)]);
-  }
-  const morts = verifierLiens(sortie);
-  if (morts.length) refuser(morts);
+  const { erreurs } = await construire({ contenu, sortie });
+  if (erreurs.length) refuser(erreurs);
 }
