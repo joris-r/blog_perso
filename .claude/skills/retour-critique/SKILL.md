@@ -68,13 +68,18 @@ Seulement quand l'auteur le demande, ou accepte ta proposition.
 
 - Le fichier est `relectures/<nom de l'article>.md`, à la racine du
   dépôt, hors de `content/`.
-- Il tient tout ce qui compte pour réviser l'article : ta lecture,
-  telle que l'auteur l'a corrigée ; les points discutés, chacun avec
-  ce que l'auteur en a décidé ; les points que la discussion n'a pas
-  abordés.
-- Un point par section `##`, pour que l'auteur puisse les réordonner,
-  les annoter ou les supprimer : où, ce qui ne va pas, pourquoi, la
-  piste.
+- C'est un aide-mémoire pour l'auteur, qui a eu la discussion : court,
+  sans justification ni exemple développé.
+- En tête, ta lecture de l'article en deux ou trois lignes, telle que
+  l'auteur l'a corrigée.
+- Un point discuté par section `##`, pour que l'auteur puisse les
+  réordonner, les annoter ou les supprimer, en deux puces :
+  - Constat : ce que fait le texte, et où, en une ou deux phrases ;
+  - Proposition : la piste issue de la discussion, suivie de son
+    statut (retenue, à développer, non tranchée) ; une réécriture
+    seulement d'une phrase.
+- Les points que la discussion n'a pas abordés, dans une dernière
+  section, une ligne chacun.
 - Si le fichier existe déjà, il contient peut-être les notes de
   l'auteur : lis-le, et ajoute ou mets à jour tes points sans effacer
   ses notes.
