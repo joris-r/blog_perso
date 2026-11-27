@@ -1,3 +1,4 @@
 node_modules/
 _site/
 tests/fixtures/tmp/
+.claude/settings.local.json

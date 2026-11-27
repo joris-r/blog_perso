@@ -19,6 +19,9 @@
   détail ni testé ; seule sa forme est vérifiée, par
   /operations/construire-le-site.
 - Le logiciel est tout le reste du dépôt. Il est spécifié et testé.
+- Les rôles de l'agent pour l'aide à l'écriture, sous
+  `.claude/skills/`, et leurs fichiers de remarques, sous
+  `relectures/`, ne sont ni spécifiés ni testés.
 - Les tests n'utilisent jamais `content/` : ils construisent des
   dossiers de contenu de test, sous `tests/fixtures/`.
 - Le dossier de contenu lu par la construction est `content/` par
@@ -35,6 +38,9 @@
 - `scripts/` : la construction et ses vérifications de forme.
 - `tests/` : les tests et leurs dossiers de contenu.
 - `.github/workflows/` : la publication.
+- `.claude/skills/` : les rôles de l'agent pour l'aide à l'écriture.
+- `relectures/` : les fichiers de remarques des rôles de l'agent, un
+  par article.
 - `_site/` : le site produit, non versionné.
 
 ## Dépendances
